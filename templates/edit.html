@@ -1,0 +1,11 @@
+{% extends 'nav.html' %}
+    {% block navblock %}
+    <div class="container">
+        <form class="row w-50 mx-auto border border-dark" method="POST" action="/update/{{postTitle}}">
+            {% csrf_token %}
+            <input class="form-control my-3 mt-5" type="text" value="{{post.postTitle}}" placeholder="Post title" name="posttitle" aria-label="default input example">
+            <input class="form-control my-3 mt-5" type="text" value="{{post.description}}" placeholder="Description" name="description" aria-label="default input example">
+            <input type="submit" class="btn btn-primary w-25 mx-auto my-4">
+        </form>
+    </div>
+    {% endblock navblock %}

@@ -1,0 +1,14 @@
+{% extends 'nav.html' %}
+    {% block navblock %}
+    <div class="container">
+        <form class="row w-50 mx-auto" method="POST" action="/signup">
+            {% csrf_token %}
+            <input class="form-control my-3 mt-5" type="text" placeholder="username" name="username" aria-label="default input example">
+            <input class="form-control my-2" type="email" placeholder="email" name="email" aria-label="default input example">
+            <input class="form-control my-2" type="text" placeholder="phone" name="phone" aria-label="default input example">
+            <input class="form-control my-2" type="password" placeholder="password" name="password" aria-label="default input example">
+            <input class="form-control my-3" type="password" placeholder="confirm password" name="cpassword" aria-label="default input example">
+            <input type="submit" class="btn btn-primary w-25 mx-auto my-4">
+        </form>
+    </div>
+    {% endblock navblock %}

@@ -1,0 +1,30 @@
+{% extends 'nav.html' %}
+    {% block navblock %}
+    <div class="container">
+        <form class="row w-50 mx-auto border border-dark p-3" method="POST" action="/createpost">
+            <h1 class="text-center">Welcome {{username}}</h1>
+            {% csrf_token %}
+            <input class="form-control my-3 mt-5" type="text" placeholder="Post title" name="posttitle" aria-label="default input example">
+            <input class="form-control my-3 mt-5" type="text" placeholder="Description" name="description" aria-label="default input example">
+            <input type="submit" class="btn btn-primary w-25 mx-auto my-4">
+        </form>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% for post in posts %}
+        <div class="card m-3" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><strong>Title: </strong> {{post.postTitle}}</h5>
+              <hr>
+              <h6 class="card-subtitle mb-2 text-dark"><strong>Posted by: </strong>{{post.postedBy}}</h6>
+              <hr>
+              <p class="card-text"><strong>Description: </strong>{{post.description}}</p>
+              <hr>
+              <a href="edit/{{post.postTitle}}" class="card-link">Edit</a>
+              <a href="delete/{{post.postTitle}}" class="card-link">Delete</a>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+    </div>
+    {% endblock navblock %}
